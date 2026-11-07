@@ -13,7 +13,8 @@
         "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.2",
         "BetterSettings": "github:sargedev/bettersettings#2023.5.1",
         "arcade-piano-roll": "github:microsoft/arcade-piano-roll#v0.0.1",
-        "adventure": "github:microsoft/arcade-tutorial-extensions/adventure#v0.0.16"
+        "adventure": "github:microsoft/arcade-tutorial-extensions/adventure#v0.0.16",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.4"
     },
     "files": [
         "main.blocks",

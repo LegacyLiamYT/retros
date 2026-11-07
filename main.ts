@@ -1,5 +1,6 @@
 function BitmapTerminalSequence () {
     adventure.addToTextlog("RetrOS (Codename Bitmap)")
+    adventure.addToTextlog("Version: " + Version)
     adventure.addToTextlog("Screen Res: " + scene.screenWidth() + "x" + scene.screenHeight())
     adventure.addToTextlog("Stored Values: " + blockSettings.list().length)
     adventure.addToTextlog("CPU: " + "Operational")
@@ -71,12 +72,12 @@ function BitmapRecoveryEnviroment () {
     }
 }
 function LoginGUI () {
-    scene.setBackgroundImage(assets.image`LoginBG`)
+    scene.setBackgroundImage(assets.image`Wallpaper1`)
     UserMenuList = [miniMenu.createMenuItem("Create User", assets.image`Plus`), miniMenu.createMenuItem("About", assets.image`Info`)]
     myMenu = miniMenu.createMenuFromArray(UserMenuList)
 }
 function MyBootMan () {
-    music.play(music.createSoundEffect(WaveShape.Square, 5000, 5000, 255, 255, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+    music.play(music.createSoundEffect(WaveShape.Sawtooth, 857, 835, 255, 255, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
     story.showPlayerChoices("(SDA1) BitmapBootPart", "(SDA2) BitmapRecoveryPart")
     if (story.checkLastAnswer("(SDA1) BitmapBootPart")) {
         BitmapTerminalSequence()
@@ -90,5 +91,6 @@ function MyBootMan () {
 let myMenu: Sprite = null
 let UserMenuList: miniMenu.MenuItem[] = []
 let statusbar: StatusBarSprite = null
-let Version = "0.0.1B"
+let Version = ""
+Version = "0.0.1B"
 MyBootMan()
