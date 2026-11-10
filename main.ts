@@ -3,26 +3,24 @@ function BitmapTerminalSequence () {
     adventure.addToTextlog("Version: " + Version)
     adventure.addToTextlog("Screen Res: " + scene.screenWidth() + "x" + scene.screenHeight())
     adventure.addToTextlog("Stored Values: " + blockSettings.list().length)
-    adventure.addToTextlog("CPU: " + "Operational")
-    adventure.addToTextlog("GPU: " + "Operational")
+    adventure.addToTextlog("CPU: " + "Operational!")
+    adventure.addToTextlog("GPU: " + "Operational!")
     if (true) {
-        adventure.addToTextlog("ROM: " + "Operational")
+        adventure.addToTextlog("ROM: " + "Operational!")
     } else {
-        adventure.addToTextlog("ROM: " + "Non-operational")
+        adventure.addToTextlog("ROM: " + "Non-operational (try reinstalling)")
     }
     blockSettings.writeString("SRAM test var", "Operational")
     blockSettings.writeBoolean("SRAM test bool", true)
     if (blockSettings.readString("SRAM test var") == "Operational" && blockSettings.readBoolean("SRAM test bool")) {
-        adventure.addToTextlog("SRAM: " + "Operational")
+        adventure.addToTextlog("SRAM: " + "Operational!")
     } else {
-        adventure.addToTextlog("SRAM: " + "Non-operational")
+        adventure.addToTextlog("SRAM: " + "Non-operational :(")
     }
     blockSettings.remove("SRAM test var")
     blockSettings.remove("SRAM test bool")
     adventure.addToTextlog("Press \"A\" when ready...")
-    pauseUntil(() => !(controller.A.isPressed()))
     pauseUntil(() => controller.A.isPressed())
-    pauseUntil(() => !(controller.A.isPressed()))
     adventure.clearTextLog()
     BitmapLoadingScreenGUI()
 }
@@ -42,22 +40,20 @@ function BitmapLoadingScreenGUI () {
 }
 function BitmapRecoveryEnviroment () {
     adventure.addToTextlog("All Settings: {")
-    for (let index = 0; index <= blockSettings.list().length - 1; index++) {
-        adventure.addToTextlog("" + blockSettings.list()[index] + ",")
+    for (let index2 = 0; index2 <= blockSettings.list().length - 1; index2++) {
+        adventure.addToTextlog("" + blockSettings.list()[index2] + ",")
     }
     adventure.addToTextlog("}")
     adventure.addToTextlog("Press \"A\" when ready...")
-    pauseUntil(() => !(controller.A.isPressed()))
     pauseUntil(() => controller.A.isPressed())
-    pauseUntil(() => !(controller.A.isPressed()))
     adventure.clearTextLog()
     if (game.ask("Do you wanna ", "delete all that?")) {
         if (game.ask("Are you sure?", "Everything will be gone.")) {
             if (game.ask("LAST CHANCE TO SAVE DATA", "Are you sure?")) {
                 adventure.addToTextlog("Begining setting deletion.")
-                for (let index2 = 0; index2 <= blockSettings.list().length - 1; index2++) {
-                    adventure.addToTextlog("Deleting setting " + blockSettings.list()[index2] + ".................")
-                    blockSettings.remove(blockSettings.list()[index2])
+                for (let index22 = 0; index22 <= blockSettings.list().length - 1; index22++) {
+                    adventure.addToTextlog("Deleting setting " + blockSettings.list()[index22] + ".................")
+                    blockSettings.remove(blockSettings.list()[index22])
                 }
                 adventure.addToTextlog("Done with reset process!")
                 game.reset()
